@@ -13,7 +13,7 @@ import com.eurogo.util.VertexNotFoundException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class DemoApplicationTests {
+public class BusRouteApplicationTests {
 
 	@Test
 	public void contextLoads() {

@@ -7,9 +7,9 @@ import com.eurogo.util.DataLoader;
 import com.eurogo.util.VertexNotFoundException;
 
 @SpringBootApplication
-public class DemoApplication{
+public class BusRouteApplication{
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(BusRouteApplication.class, args);
 		try{
 			DataLoader.loadData(args[0]);
 			
