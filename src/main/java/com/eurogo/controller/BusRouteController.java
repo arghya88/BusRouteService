@@ -7,25 +7,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.eurogo.service.RouteService;
+import com.eurogo.service.BusRouteService;
 import com.eurogo.util.Response;
 
 @RestController
 @RequestMapping("api/direct")
-public class RouteController {
+public class BusRouteController {
 	@Autowired
-	private RouteService routeService;
-	//http://localhost:8080/api/direct?dep_sid={}&arr_sid={}
+	private BusRouteService routeService;
+	//http://localhost:8088/api/direct?dep_sid={}&arr_sid={}
 	@RequestMapping(method=RequestMethod.GET,produces = "application/json")
-	public ResponseEntity<Response> getRoute(@RequestParam("dep_sid") int departure,@RequestParam("arr_sid") int arrival){
+	public ResponseEntity<Response> getBusRoute(@RequestParam("dep_sid") int departure,@RequestParam("arr_sid") int arrival){
 		Response response=new Response();
-		response.setDep_sid(departure);
-		response.setArr_sid(arrival);
-		response.setDirect_bus_route(false);
+		response.setDepartureStationId(departure);
+		response.setArrivalStationId(arrival);
+		response.setDirectBusRoute(false);
 		try {
 			boolean result=routeService.isRouteExists(departure,arrival);
 			if(result){
-				response.setDirect_bus_route(true);
+				response.setDirectBusRoute(true);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

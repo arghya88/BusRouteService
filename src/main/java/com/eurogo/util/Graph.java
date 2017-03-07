@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
+import com.eurogo.exception.VertexNotFoundException;
+
 public class Graph<T> {
 	private final Map<T, Node<T>> adjacencyList;
 
@@ -156,7 +158,7 @@ public class Graph<T> {
 
     private void breadthFirstSearch(T startVertex) {
         if (!containsVertex(startVertex)) {
-            throw new RuntimeException("Vertex does not exist.");
+            throw new RuntimeException("Vertex does not exist");
         }
 
         resetGraph();

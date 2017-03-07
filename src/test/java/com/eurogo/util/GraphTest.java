@@ -1,23 +1,17 @@
-package com.eurogo;
+package com.eurogo.util;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.runners.JUnit4;
+import com.eurogo.exception.VertexNotFoundException;
 import com.eurogo.util.Graph;
-import com.eurogo.util.VertexNotFoundException;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class BusRouteApplicationTests {
-
-	@Test
-	public void contextLoads() {
-	}
+@RunWith(JUnit4.class)
+public class GraphTest {
 	@Test
 	public void testAddVertex(){
 		Graph<Integer> graph=new Graph<>();
@@ -82,8 +76,8 @@ public class BusRouteApplicationTests {
 		graph.addEdge(0, 1);
 		assertTrue(graph.containsEdge(0, 1));
 	}
-	@Test 
-	public void testGraphHasPathBetweenVertex() throws VertexNotFoundException{
+	@Test
+	public void testShortestPath() throws VertexNotFoundException{
 		Graph<Integer> graph=new Graph<>();
 		graph.addVertex(0);
 		graph.addVertex(1);
@@ -111,8 +105,9 @@ public class BusRouteApplicationTests {
 		
 		graph.addEdge(0,6);
 		graph.addEdge(6,4);
-		
+		List<Integer> shotestPath=graph.shortestPath(3,6);
 		assertFalse(graph.shortestPath(3,6).isEmpty());
-		assertNull(graph.shortestPath(6,3));
+		assertTrue(shotestPath.stream().anyMatch(node->node==1));
+		assertTrue(shotestPath.stream().anyMatch(node->node==6));
 	}
 }

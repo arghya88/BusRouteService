@@ -3,29 +3,29 @@ package com.eurogo.util;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Response {
-	@JsonProperty(required = true)
-	Integer dep_sid;
-	@JsonProperty(required = true)
-	Integer arr_sid;
-	@JsonProperty(required = true)
-	boolean direct_bus_route;
-	public Integer getDep_sid() {
-		return dep_sid;
+	@JsonProperty(required = true,value="dep_sid")
+	Integer departureStationId;
+	@JsonProperty(required = true,value="arr_sid")
+	Integer arrivalStationId;
+	@JsonProperty(required = true,value="direct_bus_route")
+	boolean directBusRoute;
+	public Integer getDepartureStationId() {
+		return departureStationId;
 	}
-	public void setDep_sid(Integer dep_sid) {
-		this.dep_sid = dep_sid;
+	public void setDepartureStationId(Integer departureStationId) {
+		this.departureStationId = departureStationId;
 	}
-	public Integer getArr_sid() {
-		return arr_sid;
+	public Integer getArrivalStationId() {
+		return arrivalStationId;
 	}
-	public void setArr_sid(Integer arr_sid) {
-		this.arr_sid = arr_sid;
+	public void setArrivalStationId(Integer arrivalStationId) {
+		this.arrivalStationId = arrivalStationId;
 	}
-	public boolean isDirect_bus_route() {
-		return direct_bus_route;
+	public boolean isDirectBusRoute() {
+		return directBusRoute;
 	}
-	public void setDirect_bus_route(boolean direct_bus_route) {
-		this.direct_bus_route = direct_bus_route;
+	public void setDirectBusRoute(boolean directBusRoute) {
+		this.directBusRoute = directBusRoute;
 	}
 	
 }
