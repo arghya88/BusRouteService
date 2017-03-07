@@ -1,5 +1,7 @@
 package com.eurogo.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,8 @@ import com.eurogo.util.Response;
 @RestController
 @RequestMapping("api/direct")
 public class BusRouteController {
+	private static final Logger log = LoggerFactory.getLogger(BusRouteController.class);
+
 	@Autowired
 	private BusRouteService routeService;
 	//http://localhost:8088/api/direct?dep_sid={}&arr_sid={}
@@ -28,7 +32,7 @@ public class BusRouteController {
 				response.setDirectBusRoute(true);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			log.error("Error occured while getting Bus Route:",e);
 		}
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
