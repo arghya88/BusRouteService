@@ -1,5 +1,12 @@
-# BusRouteService
+# **BusRouteService**
+
 MicroService for finding bus route.
-How to use the service
+
+# **Assumptions**
+I assumed that if there is an edge between station id 3 and 6 then that also  means there is an edge between station id 6 and 3 and hence in the implementation I have used undirected graph.
+
+# **How to use the service**
+
 After the service started running hit below endpoint in your browser:
+
 http://hostname:8088/api/direct?dep_sid=3&arr_sid=6
