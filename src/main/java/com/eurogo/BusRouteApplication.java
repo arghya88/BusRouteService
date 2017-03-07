@@ -12,7 +12,7 @@ public class BusRouteApplication{
 	public static void main(String[] args) {
 		SpringApplication.run(BusRouteApplication.class, args);
 		try{
-			DataLoader.getInstance().loadData(args[2]);
+			DataLoader.getInstance().loadData(args[0]);
 			
 		} catch (IOException | VertexNotFoundException e) {
 			e.printStackTrace();
