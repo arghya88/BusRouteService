@@ -25,5 +25,7 @@ public class DataLoaderTest {
 		assertTrue("Vertex 3 exists", graph.containsVertex(3));
 		assertEquals(7,graph.vertexCount());
 		assertEquals(18,graph.edgeCount());
+		assertTrue("Edge between vertex 1 and 2 exists", graph.containsEdge(1, 2));
+		assertTrue("Edge between vertex 2 and 1 exists", graph.containsEdge(2, 1));
 	}
 }
